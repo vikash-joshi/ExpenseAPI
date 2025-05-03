@@ -1,0 +1,59 @@
+# Build Results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+.history/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# .NET secrets
+secrets.json
+
+# EF Core Migrations Cache
+MigrationsSnapshot.cs
+
+# Publish folder
+publish/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Mac OS
+.DS_Store
+
+# npm/Yarn packages (if using Node in frontend)
+node_modules/
+
+# Configuration files you should not commit
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Local.json
+
+# Optional: if using Docker
+*.pid
+*.env
+docker-compose.override.yml
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Optional: test results
+TestResults/
