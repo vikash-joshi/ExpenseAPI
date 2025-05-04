@@ -5,7 +5,7 @@ using CleanArchitectureDemo.Application.Expenses.Commands;
 namespace ExpenseTracker.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 public class ExpensesController : ControllerBase
 {
     private readonly IMediator _mediator;
