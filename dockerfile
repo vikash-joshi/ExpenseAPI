@@ -1,29 +1,22 @@
 # Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-# Copy solution and project files
-COPY *.sln .
-COPY src/CleanArchitectureDemo.API/*.csproj ./src/CleanArchitectureDemo.API/
-COPY src/CleanArchitectureDemo.Application/*.csproj ./src/CleanArchitectureDemo.Application/
-COPY src/CleanArchitectureDemo.Domain/*.csproj ./src/CleanArchitectureDemo.Domain/
-COPY src/CleanArchitectureDemo.Infrastructure/*.csproj ./src/CleanArchitectureDemo.Infrastructure/
+# Copy csproj and restore as distinct layers
+COPY ./CleanArchitectureDemo.API/CleanArchitectureDemo.API.csproj ./CleanArchitectureDemo.API/
+COPY ./CleanArchitectureDemo.Application/CleanArchitectureDemo.Application.csproj ./CleanArchitectureDemo.Application/
+COPY ./CleanArchitectureDemo.Infrastructure/CleanArchitectureDemo.Infrastructure.csproj ./CleanArchitectureDemo.Infrastructure/
+COPY ./CleanArchitectureDemo.Domain/CleanArchitectureDemo.Domain.csproj ./CleanArchitectureDemo.Domain/
 
-# Restore dependencies
-RUN dotnet restore
+RUN dotnet restore ./CleanArchitectureDemo.API/CleanArchitectureDemo.API.csproj
 
-# Copy the rest of the code
-COPY . .
-
-# Publish the API
-WORKDIR /app/src/CleanArchitectureDemo.API
+# Copy everything else and build
+COPY . ./
+WORKDIR /src/CleanArchitectureDemo.API
 RUN dotnet publish -c Release -o /out
 
 # Stage 2: Runtime
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /out .
-
-# Use port 80 (Render default)
-EXPOSE 80
+COPY --from=build /out ./
 ENTRYPOINT ["dotnet", "CleanArchitectureDemo.API.dll"]
