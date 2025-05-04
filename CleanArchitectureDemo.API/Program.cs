@@ -26,12 +26,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Register services
 builder.Services.AddControllers();
-builder.WebHost.ConfigureKestrel(serverOptions =>
+/*builder.WebHost.ConfigureKestrel(serverOptions =>
 {
     serverOptions.ListenAnyIP(80); // <--- Important for Docker
 });
-
-builder.Services.AddInfrastructure(builder.Configuration.GetConnectionString("PostgressConnection"));
+*/
+builder.Services.AddInfrastructure(builder.Configuration.GetValue<string>("ConnectionStrings:PostgressConnection"));
 builder.Services.AddMediatR(typeof(CleanArchitectureDemo.Application.AssemblyReference).Assembly); // Cleaner
 
 
