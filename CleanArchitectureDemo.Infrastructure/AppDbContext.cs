@@ -22,10 +22,8 @@ namespace CleanArchitectureDemo.Infrastructure.Persistence
             // Configure the schema for the Expenses entity
             modelBuilder.Entity<Expense>(entity =>
             {
-                entity.ToTable("Expenses", "Expenses"); // Schema "finance"
-                entity.HasKey(e => e.ExpenseId); // Primary key
-                entity.Property(e => e.ExpenseDate).IsRequired(); // Example property configuration
-                // Add other configurations as needed
+                entity.ToTable("Expenses"); // Schema "finance"
+                
             });
 
             
