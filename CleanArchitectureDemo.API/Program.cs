@@ -31,7 +31,7 @@ builder.Services.AddControllers();
     serverOptions.ListenAnyIP(80); // <--- Important for Docker
 });
 */
-builder.Services.AddInfrastructure(builder.Configuration.GetValue<string>("ConnectionStrings:PostgressConnection"));
+builder.Services.AddInfrastructure(builder.Configuration.GetValue<string>("ConnectionStrings:PostgressConnections"));
 builder.Services.AddMediatR(typeof(CleanArchitectureDemo.Application.AssemblyReference).Assembly); // Cleaner
 
 
