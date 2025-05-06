@@ -22,19 +22,13 @@ namespace CleanArchitectureDemo.Infrastructure.Persistence
             // Configure the schema for the Expenses entity
             modelBuilder.Entity<Expense>(entity =>
             {
-                entity.ToTable("Expenses", "finance"); // Schema "finance"
+                entity.ToTable("Expenses", "Expenses"); // Schema "finance"
                 entity.HasKey(e => e.ExpenseId); // Primary key
                 entity.Property(e => e.ExpenseDate).IsRequired(); // Example property configuration
                 // Add other configurations as needed
             });
 
-            // Configure the schema for the Category entity
-            modelBuilder.Entity<Category>(entity =>
-            {
-                entity.ToTable("Categories", "finance"); // Schema "finance"
-                entity.HasKey(c => c.CategoryId); // Primary key
-                // Add other configurations as needed
-            });
+            
 
             // Example for other entities if you have them:
             // modelBuilder.Entity<AnotherEntity>(entity => { /* configuration */ });
