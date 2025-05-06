@@ -44,7 +44,7 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
             .Build();
 
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-        optionsBuilder.UseNpgsql("Host=dpg-d0b757qdbo4c73cg5o5g-a;Port=5432;Database=internal_db_123abc;Username=echovik;Password=ByhasQyVJTlI67r6nllokqZqwtd06JVi;Ssl Mode=Require;Trust Server Certificate=true;");
+        optionsBuilder.UseNpgsql("Host=dpg-d0d52ga4d50c73effqdg-a;Port=5432;Database=mydb_46qz;Username=mydb_46qz_user;Password=8NjwncTk9Ug1Ef2uxJcL4BAyPCz5sZqs;Ssl Mode=Require;Trust Server Certificate=true;");
 
         return new AppDbContext(optionsBuilder.Options);
     }
