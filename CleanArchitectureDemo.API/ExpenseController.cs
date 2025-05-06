@@ -38,7 +38,7 @@ public class ExpensesController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetVerify()
     {
-         var expenses = await _mediator.Send(new GetAllExpensesQuery());
+         //var expenses = await _mediator.Send(new GetAllExpensesQuery());
          //return Ok(expenses);
         return Ok("Get All Expenses");
     }
