@@ -35,6 +35,13 @@ public class ExpensesController : ControllerBase
          return Ok(expenses);
         //return Ok("Get All Expenses");
     }
+    [HttpGet]
+    public async Task<IActionResult> GetVerify()
+    {
+         var expenses = await _mediator.Send(new GetAllExpensesQuery());
+         //return Ok(expenses);
+        return Ok("Get All Expenses");
+    }
     
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
