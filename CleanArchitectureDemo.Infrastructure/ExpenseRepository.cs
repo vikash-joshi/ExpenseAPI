@@ -11,6 +11,7 @@ namespace CleanArchitectureDemo.Infrastructure
 {
     public class ExpenseRepository :IExpenseRepository
     {
+        
         private readonly AppDbContext _context;
 
         public ExpenseRepository(AppDbContext _context)
