@@ -31,7 +31,7 @@ builder.Services.AddControllers();
     serverOptions.ListenAnyIP(80); // <--- Important for Docker
 });
 */
-builder.Services.AddInfrastructure(builder.Configuration.GetValue<string>("ConnectionStrings:PostgressConnections"));
+builder.Services.AddInfrastructure("Host=aws-0-us-east-2.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.pdhaciivnsycejerdumq;Password=xq#N?7dqkjQ7H.f;Ssl Mode=Require;Trust Server Certificate=true;");
 builder.Services.AddMediatR(typeof(CleanArchitectureDemo.Application.AssemblyReference).Assembly); // Cleaner
 
 

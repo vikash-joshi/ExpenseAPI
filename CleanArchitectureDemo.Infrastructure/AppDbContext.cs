@@ -44,7 +44,7 @@ public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
             .Build();
 
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-        optionsBuilder.UseNpgsql("Host=db.pdhaciivnsycejerdumq.supabase.co;Port=5432;Database=postgres;Username=postgres;Password=TDZk0gQAcJV5YnSJ;Ssl Mode=Require;Trust Server Certificate=true;");
+        optionsBuilder.UseNpgsql("Host=aws-0-us-east-2.pooler.supabase.com;Port=6543;Database=postgres;Username=postgres.pdhaciivnsycejerdumq;Password=xq#N?7dqkjQ7H.f;Ssl Mode=Require;Trust Server Certificate=true;");
 
         return new AppDbContext(optionsBuilder.Options);
     }

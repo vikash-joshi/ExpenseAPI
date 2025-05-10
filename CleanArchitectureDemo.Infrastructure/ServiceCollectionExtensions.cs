@@ -33,7 +33,7 @@ namespace CleanArchitectureDemo.Infrastructure
     {
         services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql(configuration));
-            services.AddScoped<IExpenseRepository, ExpenseRepository>();
+        services.AddScoped<IExpenseRepository, ExpenseRepository>();
 
         return services;
     }
